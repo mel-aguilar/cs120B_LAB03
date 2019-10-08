@@ -54,6 +54,21 @@ continue 2
 expectPORTC 3
 checkResult
 
+test "PINA: 0x00, PINB: 0x90 => PORTC: 2"
+setPINA 0x00
+setPINB 0x90
+continue 2
+expectPORTC 2
+checkResult
+
+test "PINA: 0x00, PINB: 0x0F => PORTC: 4"
+setPINA 0x00
+setPINB 0x0F
+continue 2
+expectPORTC 4
+checkResult
+
+
 
 
 
