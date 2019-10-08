@@ -13,9 +13,9 @@
 #include "simAVRHeader.h"
 #endif
 
-unsigned char set(unsigned char pin, unsigned char bit_pos, unsigned char bit_val) {
-return (bit_val ? pin | (0x00 << bit_pos) : pin & ~(0x00 << bit_pos));
-}
+//unsigned char set(unsigned char pin, unsigned char bit_pos, unsigned char bit_val) {
+//return (bit_val ? pin | (0x01 << bit_pos) : pin & ~(0x00 << bit_pos));
+//}
 
 unsigned char get(unsigned char port, unsigned char bit_pos) {
 return ((port >> bit_pos) & 0x01);
