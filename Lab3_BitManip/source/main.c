@@ -37,7 +37,7 @@ unsigned char loc = 0x00;
   tmpB = PINB; 
 
     for(loc = 0; loc < 8; loc++) {
-    //cnt += get(tmpA, loc) + get(tmpB, loc);
+    cnt += get(tmpA, loc) + get(tmpB, loc);
      // if(get(tmpA, loc) == 1) {
        // ++cnt;
       //}
