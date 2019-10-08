@@ -18,7 +18,7 @@ return (bit_val ? pin | (0x00 << bit_pos) : pin & ~(0x00 << bit_pos));
 }
 
 unsigned char get(unsigned char port, unsigned char bit_pos) {
-return ((port >> bit_pos) & 0x00);
+return ((port >> bit_pos) & 0x01);
 } 
 
 int main(void) {
@@ -32,19 +32,19 @@ unsigned char tmpA = 0x00;
 unsigned char tmpB = 0x00;
 unsigned char loc = 0x00;
 
-while(1) {
-tmpA = PINA;
-tmpB = PINB; 
+  while(1) {
+  tmpA = PINA;
+  tmpB = PINB; 
 
-for(loc = 0; loc < 8; loc++) {
-//cnt += get(tmpA, loc) + get(tmpB, loc);
-if(get(tmpA, loc) == 1) {
-++cnt;
-}
-}
-PORTC = cnt;
-cnt = 0;
-}
+    for(loc = 0; loc < 8; loc++) {
+    //cnt += get(tmpA, loc) + get(tmpB, loc);
+     // if(get(tmpA, loc) == 1) {
+       // ++cnt;
+      //}
+  }
+  PORTC = cnt;
+  cnt = 0;
+  }
 return 1;
 } 
 
