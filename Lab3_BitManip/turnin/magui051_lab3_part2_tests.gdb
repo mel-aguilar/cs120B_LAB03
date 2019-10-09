@@ -20,6 +20,7 @@
 #   printDDRx
 #       With x as the DDR (A,B,C,D)
 #       Example: printDDRB
+
 echo ======================================================\n
 echo Running all tests..."\n\n
 
