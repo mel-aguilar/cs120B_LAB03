@@ -1,4 +1,4 @@
-# Test file for Lab3_bit
+# Test file for Lab3_BitManip
 # commands.gdb provides the following functions for ease:
 #   test "<message>"
 #       Where <message> is the message to print. Must call this at the beginning of every test
