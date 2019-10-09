@@ -26,10 +26,12 @@ int main(void) {
 
 
     unsigned char input = 0x00;
+    unsigned char inputB = 0x00;
     unsigned char led = 0x00;
 
     while(1) {
       input = PINA;
+      inputB = PINA & 0xF0;
 
       if(input == 0x01 || input == 0x02) {
         led = 0x60;
@@ -48,6 +50,9 @@ int main(void) {
       }
       else if(input == 0x0D || input == 0x0E || input == 0x0F) {
         led = 0x3F;
+      }
+      if((PINA >> 4) == 0x03){
+        led = led | 0x80;  
       }
       PORTC = led;
     }
