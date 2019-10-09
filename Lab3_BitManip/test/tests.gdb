@@ -1,6 +1,4 @@
-# Test file for Lab3_BitManip
-
-
+# Test file for Lab3_bit
 # commands.gdb provides the following functions for ease:
 #   test "<message>"
 #       Where <message> is the message to print. Must call this at the beginning of every test
@@ -22,57 +20,45 @@
 #   printDDRx
 #       With x as the DDR (A,B,C,D)
 #       Example: printDDRB
-
 echo ======================================================\n
 echo Running all tests..."\n\n
 
-# Example test:
-test "PINA: 0x00, PINB: 0x00 => PORTC: 0"
-# Set inputs
-setPINA 0x00
-setPINB 0x00
-# Continue for several ticks
-continue 2
-# Set expect values
-expectPORTC 0
-# Check pass/fail
-checkResult
-
 # Add tests below
 
-test "PINA: 0x69, PINB: 0x00 => PORTC: 4"
-setPINA 0x69
-setPINB 0x00
+test "PINA: 0x01 => PORTC: 0x60" 
+setPINA 0x01
 continue 2
-expectPORTC 4
+expectPORTC 0x60
 checkResult
 
-test "PINA: 0x07, PINB: 0x00 => PORTC: 3"
-setPINA 0x07
-setPINB 0x00
+test "PINA: 0x03 => PORTC: 0x70" 
+setPINA 0x03
 continue 2
-expectPORTC 3
+expectPORTC 0x70
 checkResult
 
-test "PINA: 0x00, PINB: 0x90 => PORTC: 2"
-setPINA 0x00
-setPINB 0x90
+test "PINA: 0x05 => PORTC: 0x38" 
+setPINA 0x05
 continue 2
-expectPORTC 2
+expectPORTC 0x38
 checkResult
 
-test "PINA: 0x00, PINB: 0x0F => PORTC: 4"
-setPINA 0x00
-setPINB 0x0F
+test "PINA: 0x08 => PORTC: 0x3C" 
+setPINA 0x08
 continue 2
-expectPORTC 4
+expectPORTC 0x3C
 checkResult
 
-test "PINA: 0xFF, PINB: 0xFF => PORTC: 16"
-setPINA 0xFF
-setPINB 0xFF
+test "PINA: 0x0A => PORTC: 0x3E" 
+setPINA 0x0A
 continue 2
-expectPORTC 16
+expectPORTC 0x3E
+checkResult
+
+test "PINA: 0x0F => PORTC: 0x3F" 
+setPINA 0x0F
+continue 2
+expectPORTC 0x3F
 checkResult
 
 # Report on how many tests passed/tests ran
