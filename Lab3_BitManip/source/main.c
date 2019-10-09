@@ -14,19 +14,27 @@
 #endif
 
 int main(void) {
-    /* Insert DDR and PORT initializations */
-    DDRA = 0x00; PORTA = 0xFF; //input 
-    DDRB = 0xFF; PORTB = 0x00; //output
-    DDRC = 0xFF; PORTC = 0x00; //output
 
-    unsigned char inputA = 0x00;
- 
-    while(1) {
-       PORTB = (PINA >> 4) | 0x0;
-       PORTC = (PINA << 4);     
+    /* Insert DDR and PORT initializations */
+
+    DDRB = 0xFE; PORTB = 0x00;
+    DDRD = 0x00; PORTD = 0x00;
+    
+    unsigned long weight = 0;
+    unsigned char tempB = 0x00;
+
+    while(1){
+        weight = PIND + PINB;
+        if(weight >= 70){
+            tempB = 0x02;
+        }
+        else if(weight <= 5){
+            tempB = 0x00;
+        }
+        else{
+            tempB = 0x04;
+        }
+        PORTB = tempB;
     }
     return 1;
- }
-
-  /* Insert your solution below */
-
+}
