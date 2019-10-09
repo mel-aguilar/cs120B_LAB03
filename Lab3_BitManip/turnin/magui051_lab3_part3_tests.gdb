@@ -26,8 +26,6 @@ echo Running all tests..."\n\n
 
 # Add tests below
 
-
-
 test "PINA: 0x31 => PORTC: 0xE0" 
 setPINA 0x31
 continue 2
