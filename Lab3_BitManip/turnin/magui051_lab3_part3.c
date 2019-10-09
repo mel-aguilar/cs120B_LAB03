@@ -13,11 +13,6 @@
 #include "simAVRHeader.h"
 #endif
 
-//unsigned char set(unsigned char pin, unsigned char bit_pos, unsigned char bit_val) {
-//return (bit_val ? pin | (0x01 << bit_pos) : pin & ~(0x00 << bit_pos));
-//}
-
-
 int main(void) {
     /* Insert DDR and PORT initializations */
     DDRA = 0x00; PORTA = 0xFF; //input 
