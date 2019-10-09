@@ -31,22 +31,22 @@ int main(void) {
     while(1) {
       input = PINA;
 
-      if(input == 0x01 && input == 0x02) {
+      if(input == 0x01 || input == 0x02) {
         led = 0x60;
       }
-      else if(input == 0x03 && input == 0x04) {
+      else if(input == 0x03 || input == 0x04) {
         led = 0x70;
       }
-      else if(input == 0x05 && input == 0x06) {
+      else if(input == 0x05 || input == 0x06) {
         led = 0x38;
       }
-      else if(input == 0x07 && input == 0x08 && input == 0x09) {
+      else if(input == 0x07 || input == 0x08 || input == 0x09) {
         led = 0x3C;
       }
-      else if(input == 0x0A && input == 0x0B && input == 0x0C) {
+      else if(input == 0x0A || input == 0x0B || input == 0x0C) {
         led = 0x3E;
       }
-      else if(input == 0x0D && input == 0x0E && input == 0x0E) {
+      else if(input == 0x0D || input == 0x0E || input == 0x0F) {
         led = 0x3F;
       }
       PORTC = led;
