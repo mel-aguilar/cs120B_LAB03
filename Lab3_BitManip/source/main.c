@@ -17,36 +17,42 @@
 //return (bit_val ? pin | (0x01 << bit_pos) : pin & ~(0x00 << bit_pos));
 //}
 
-unsigned char get(unsigned char port, unsigned char bit_pos) {
-return ((port >> bit_pos) & 0x01);
-} 
 
 int main(void) {
-/* Insert DDR and PORT initializations */
-DDRA = 0x00; PORTA = 0xFF; //input 
-DDRB = 0x00; PORTB = 0xFF; //input
-DDRC = 0xFF; PORTC = 0x00; //output
+    /* Insert DDR and PORT initializations */
+    DDRA = 0x00; PORTA = 0xFF; //input 
+    //DDRB = 0x00; PORTB = 0xFF; //input
+    DDRC = 0xFF; PORTC = 0x00; //output
 
-unsigned char cnt = 0x00;
-unsigned char tmpA = 0x00;
-unsigned char tmpB = 0x00;
-unsigned char loc = 0x00;
 
-  while(1) {
-  tmpA = PINA;
-  tmpB = PINB; 
+    unsigned char input = 0x00;
+    unsigned char led = 0x00;
 
-    for(loc = 0; loc < 8; loc++) {
-    cnt += get(tmpA, loc) + get(tmpB, loc);
-     // if(get(tmpA, loc) == 1) {
-       // ++cnt;
-      //}
-  }
-  PORTC = cnt;
-  cnt = 0;
-  }
-return 1;
-} 
+    while(1) {
+      input = PINA;
 
-/* Insert your solution below */
+      if(input == 0x01 && input == 0x02) {
+        led = 0x60;
+      }
+      else if(input == 0x03 && input == 0x04) {
+        led = 0x70;
+      }
+      else if(input == 0x05 && input == 0x06) {
+        led = 0x38;
+      }
+      else if(input == 0x07 && input == 0x08 && input == 0x09) {
+        led = 0x3C;
+      }
+      else if(input == 0x0A && input == 0x0B && input == 0x0C) {
+        led = 0x3E;
+      }
+      else if(input == 0x0D && input == 0x0E && input == 0x0E) {
+        led = 0x3F;
+      }
+      PORTC = led;
+    }
+    return 1;
+ }
+
+  /* Insert your solution below */
 
