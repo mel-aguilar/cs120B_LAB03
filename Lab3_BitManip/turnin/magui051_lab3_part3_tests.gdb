@@ -1,5 +1,4 @@
-# Test file for Lab3_BitManip
-
+# Test file for Lab3_bit
 # commands.gdb provides the following functions for ease:
 #   test "<message>"
 #       Where <message> is the message to print. Must call this at the beginning of every test
@@ -27,54 +26,51 @@ echo Running all tests..."\n\n
 
 # Add tests below
 
-test "PINA: 0x10 => PORTB: 0x01; PORTC: 0x00" 
-setPINA 0x10
+
+
+test "PINA: 0x31 => PORTC: 0xE0" 
+setPINA 0x31
 continue 2
-expectPORTC 0x00
-expectPORTB 0x01
+expectPORTC 0xE0
 checkResult
 
-test "PINA: 0x01 => PORTB: 0x00; PORTC: 0x10" 
-setPINA 0x01
+test "PINA: 0x3F => PORTC: 0xBF" 
+setPINA 0x3F
 continue 2
-expectPORTC 0x10
-expectPORTB 0x00
+expectPORTC 0xBF
 checkResult
 
-test "PINA: 0x21 => PORTB: 0x02; PORTC: 0x10" 
-setPINA 0x21
+test "PINA: 0x04 => PORTC: 0x70" 
+setPINA 0x04
 continue 2
-expectPORTC 0x10
-expectPORTB 0x02
+expectPORTC 0x70
 checkResult
 
-test "PINA: 0x33 => PORTB: 0x03; PORTC: 0x30" 
-setPINA 0x33
+test "PINA: 0x0F => PORTC: 0x3F" 
+setPINA 0x0F
 continue 2
-expectPORTC 0x30
-expectPORTB 0x03
+expectPORTC 0x3F
 checkResult
 
-test "PINA: 0x00 => PORTB: 0x00; PORTC: 0x00" 
-setPINA 0x00
+
+test "PINA: 0x08 => PORTC: 0x3C" 
+setPINA 0x08
 continue 2
-expectPORTC 0x00
-expectPORTB 0x00
+expectPORTC 0x3C
 checkResult
 
-test "PINA: 0xA0 => PORTB: 0x0A; PORTC: 0x00" 
-setPINA 0xA0
-continue 2
-expectPORTC 0x00
-expectPORTB 0x0A
-checkResult
-
-test "PINA: 0x0A => PORTB: 0x00; PORTC: 0xA0" 
+test "PINA: 0x0A => PORTC: 0x3E" 
 setPINA 0x0A
 continue 2
-expectPORTC 0xA0
-expectPORTB 0x00
+expectPORTC 0x3E
 checkResult
+
+test "PINA: 0x73 => PORTC: 0x70" 
+setPINA 0x73
+continue 2
+expectPORTC 0x70
+checkResult
+
 
 # Report on how many tests passed/tests ran
 set $passed=$tests-$failed
