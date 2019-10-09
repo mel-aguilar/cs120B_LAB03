@@ -13,48 +13,17 @@
 #include "simAVRHeader.h"
 #endif
 
-//unsigned char set(unsigned char pin, unsigned char bit_pos, unsigned char bit_val) {
-//return (bit_val ? pin | (0x01 << bit_pos) : pin & ~(0x00 << bit_pos));
-//}
-
-
 int main(void) {
     /* Insert DDR and PORT initializations */
     DDRA = 0x00; PORTA = 0xFF; //input 
-    //DDRB = 0x00; PORTB = 0xFF; //input
+    DDRB = 0xFF; PORTB = 0x00; //output
     DDRC = 0xFF; PORTC = 0x00; //output
 
-
-    unsigned char input = 0x00;
-    unsigned char inputB = 0x00;
-    unsigned char led = 0x00;
-
+    unsigned char inputA = 0x00;
+ 
     while(1) {
-      input = PINA;
-      inputB = PINA & 0xF0;
-
-      if(input == 0x01 || input == 0x02) {
-        led = 0x60;
-      }
-      else if(input == 0x03 || input == 0x04) {
-        led = 0x70;
-      }
-      else if(input == 0x05 || input == 0x06) {
-        led = 0x38;
-      }
-      else if(input == 0x07 || input == 0x08 || input == 0x09) {
-        led = 0x3C;
-      }
-      else if(input == 0x0A || input == 0x0B || input == 0x0C) {
-        led = 0x3E;
-      }
-      else if(input == 0x0D || input == 0x0E || input == 0x0F) {
-        led = 0x3F;
-      }
-      if((PINA >> 4) == 0x03){
-        led = led | 0x80;  
-      }
-      PORTC = led;
+       PORTB = (PINA >> 4) | 0x0;
+       PORTC = (PINA << 4);     
     }
     return 1;
  }
