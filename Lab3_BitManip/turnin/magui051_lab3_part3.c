@@ -7,7 +7,6 @@
 * I acknowledge all content contained herein, excluding template or example
 * code, is my own original work.
 */
-
 #include <avr/io.h>
 #ifdef _SIMULATE_
 #include "simAVRHeader.h"
@@ -16,9 +15,7 @@
 int main(void) {
     /* Insert DDR and PORT initializations */
     DDRA = 0x00; PORTA = 0xFF; //input 
-    //DDRB = 0x00; PORTB = 0xFF; //input
     DDRC = 0xFF; PORTC = 0x00; //output
-
 
     unsigned char input = 0x00;
     unsigned char inputB = 0x00;
