@@ -22,7 +22,7 @@ int main(void) {
     unsigned char led = 0x00;
 
     while(1) {
-      input = PINA;
+      input = PINA & 0x0F;
       inputB = PINA & 0xF0;
 
       if(input == 0x01 || input == 0x02) {
